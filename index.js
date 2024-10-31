@@ -4,15 +4,22 @@ const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
 const linksFromLocalStorage = JSON.parse( localStorage.getItem("myLinks") )
+const tabBtn = document.getElementById("tab-btn")
+
 
 if (linksFromLocalStorage) {
     myLinks = linksFromLocalStorage
     render(myLinks)
 }
 
-// Refector the function so that it takes a parameter, leads, that it uses
-// instead of the global myLeads variable. Remember to update all invocations 
-// of the function as well.
+tabBtn.addEventListener("click", function() {
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        myLinks.push(tabs[0].url)
+        localStorage.setItem("myLinks", JSON.stringify(myLinks) )
+        render(myLinks)
+    })
+})
+
 
 function render(links) {
     let listItems = ""
