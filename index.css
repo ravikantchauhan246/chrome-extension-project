@@ -68,6 +68,30 @@ button:hover {
 #delete-btn {
     background: #404040;
     color: #ff6b6b;
+    position: relative;
+}
+
+#delete-btn::after {
+    content: "Double click to delete";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    background: #4a4a4a;
+    border-radius: 4px;
+    font-size: 12px;
+    color: white;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    margin-bottom: 5px;
+}
+
+#delete-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
 }
 
 #delete-btn:hover {
@@ -99,4 +123,60 @@ a {
 
 a:hover {
     color: #99ccff;
+}
+
+/* Add these styles for the Save button */
+#input-btn {
+    position: relative;
+}
+
+#input-btn::after {
+    content: "Save current link";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    background: #4a4a4a;
+    border-radius: 4px;
+    font-size: 12px;
+    color: white;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    margin-bottom: 5px;
+}
+
+#input-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Add these styles for the Tab button */
+#tab-btn {
+    position: relative;
+}
+
+#tab-btn::after {
+    content: "Save current tab";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    background: #4a4a4a;
+    border-radius: 4px;
+    font-size: 12px;
+    color: white;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    margin-bottom: 5px;
+}
+
+#tab-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
 }
